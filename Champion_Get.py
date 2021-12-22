@@ -9,8 +9,7 @@ import pandas as pd
 import numpy as np
 
 def champion_get():
-    champions = pd.read_json('C:/Users/Barrett/Documents/League of Legends Stats/dragontail-10.2.1/dragontail-10.2.1/10.2.1/data/en_US/champion.json').drop(columns=['type','version','format'])
-    print('THIS IS FOR PATCH 10.2.1')
+    champions = pd.read_json('champion.json').drop(columns=['type','version','format'])
     champs = []
     for champ_name, row in champions.iterrows():
         globals()[champ_name] = champion()
