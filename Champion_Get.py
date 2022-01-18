@@ -9,6 +9,12 @@ import pandas as pd
 import numpy as np
 
 def champion_get():
+    """
+    Reads the local champion.json file
+    And turns the relevant information about each champion into a class
+
+    Returns a list of champion classes for each class
+    """
     champions = pd.read_json('champion.json').drop(columns=['type','version','format'])
     champs = []
     for champ_name, row in champions.iterrows():
@@ -33,6 +39,3 @@ def Stat_Growth(base, growth, max_level = 18):
         stat[i] = base + growth*(level)*(0.7025+0.0175*(level))
         i += 1
     return stat
-
-if __name__ == '__main__':
-    champs = champion_get()

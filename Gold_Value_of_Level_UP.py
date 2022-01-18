@@ -5,13 +5,13 @@ Created on Mon Mar  2 21:14:51 2020
 @author: Barrett
 """
 
-import sys
-sys.path.append('C:\\Users\\Barrett\\Documents\\League of Legends Stats')
-
 import Champion_Get as cg
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error, r2_score
 
 champs = cg.champion_get()
 
