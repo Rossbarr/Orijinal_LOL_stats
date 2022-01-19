@@ -6,7 +6,7 @@ Created on Tue Jan 14 11:15:55 2020
 """
 import numpy as np
 import matplotlib.pyplot as plt
-from modules.Stat_To_Gold_Converter import AD_gold_value, AS_gold_value, crit_gold_value, move_speed_gold_value, mana_gold_value
+from modules.Stat_To_Gold_Converter import AD_gold_value, move_speed_gold_value, mana_gold_value
 
 #Gathering Storm
 def gathering_storm_AD(time):
