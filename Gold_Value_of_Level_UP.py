@@ -8,6 +8,7 @@ This file sets out to answer the question of:
 "How much is the gold value of a level up? How much does this change between levels (is it more valuable to level up from 1 to 2 or 17 to 18)?"
 
 TO-DO: make currently displayed graph show level up not AS per level up!
+TO-DO: rework to make work with new modules.champion_get function!
 """
 
 import modules.Champion_Get as cg
