@@ -3,17 +3,22 @@
 Created on Mon Mar  2 21:14:51 2020
 
 @author: Barrett
+
+This file sets out to answer the question of:
+"How much is the gold value of a level up? How much does this change between levels (is it more valuable to level up from 1 to 2 or 17 to 18)?"
+
+TO-DO: make currently displayed graph show level up not AS per level up!
 """
 
-import Champion_Get as cg
+import modules.Champion_Get as cg
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-from sklearn import datasets, linear_model
-from sklearn.metrics import mean_squared_error, r2_score
+# from sklearn import datasets, linear_model
+# from sklearn.metrics import mean_squared_error, r2_score
 
-champs = cg.champion_get()
+champs = cg.champion_get('data/champion.json')
 
 level = np.arange(1,19,1)
 
@@ -157,5 +162,6 @@ plt.xlim(1, 18)
 plt.xlabel('Level')
 plt.ylabel(stat)
 plt.title('For Patch 10.2')
-plt.savefig('figure.png')
+plt.savefig('figures/gold_value_of_level_up.png')
+print("Saved file 'ADC_stat_growth.png' under figures/gold_value_of_level_up.png")
 plt.show()

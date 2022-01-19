@@ -1,21 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
+This file originally dealt with the question of:
+"How do champion's stats grow compared to one another? Who scales better than others?"
 """
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from Champion_Get import Stat_Growth
+from modules.Champion_Get import Stat_Growth
 
-stats = pd.read_csv("Marksmen_Stats.csv")
+stats = pd.read_csv("data/Marksmen_Stats.csv")
 
 level = np.arange(1,19,1)
 
-#champions = stats['Champion']
-champions = ['Xayah','Darius','Sett','Kalista','Aphelios']
+#champions = stats['Champion'] # Sees all champions (mostly useless, hard to read)
+champions = ['Xayah','Darius','Sett','Kalista','Aphelios'] #Enter champion names to see other champions
 
 for champion in champions:
     AD = Stat_Growth(stats['Attack Damage'][stats['Champion'] == champion],
@@ -31,5 +30,5 @@ plt.ylabel('Attack Damage')
 plt.xlim(1,18)
 plt.ylim(0,150)
 # plt.figure(figsize = [10,8])
-plt.savefig('ADC_stat_growth.png')
-print("Saved file 'ADC_stat_growth.png' to this directory")
+plt.savefig('figures/ADC_stat_growth.png')
+print("Saved file 'ADC_stat_growth.png' under figures/ADC_stat_growth.png")

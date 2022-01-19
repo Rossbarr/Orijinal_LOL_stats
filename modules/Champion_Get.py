@@ -8,14 +8,14 @@ Created on Thu Jan 30 09:41:54 2020
 import pandas as pd
 import numpy as np
 
-def champion_get():
+def champion_get(fn):
     """
-    Reads the local champion.json file
+    Accepts a champion json file (fn)
     And turns the relevant information about each champion into a class
 
     Returns a list of champion classes for each class
     """
-    champions = pd.read_json('champion.json').drop(columns=['type','version','format'])
+    champions = pd.read_json(fn).drop(columns=['type','version','format'])
     champs = []
     for champ_name, row in champions.iterrows():
         globals()[champ_name] = champion()

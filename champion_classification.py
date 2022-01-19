@@ -3,7 +3,7 @@
 @author: Barrett
 """
 
-import Champion_Get as cg
+import modules.Champion_Get as cg
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -12,7 +12,7 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_curve, accuracy_score
 
-champs = cg.champion_get()
+champs = cg.champion_get('data/champion.json')
 
 level = np.arange(1,19,1)
 
@@ -132,3 +132,5 @@ clf.fit(data_train, tags_train)
 tags_pred = clf.predict(data_test)
 
 score = accuracy_score(tags_test, tags_pred)
+
+print("Predicted champion's class (tank or marksman) with an accuracy of ", score)
