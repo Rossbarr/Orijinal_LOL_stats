@@ -3,15 +3,9 @@
 Created on Thu Mar  5 19:28:04 2020
 
 @author: Barrett
+
+Has a multitude of functions to convert different stats into their gold equivalent value.
 """
-
-import pandas as pd
-import json
-
-#items = pd.read_json('C:/Users/Barrett/Documents/League of Legends Stats/dragontail-10.2.1/dragontail-10.2.1/10.2.1/data/en_US/item.json')
-with open('C:/Users/Barrett/Documents/League of Legends Stats/dragontail-10.2.1/dragontail-10.2.1/10.2.1/data/en_US/item.json') as f:
-    items = json.load(f)
-
 
 def AD_gold_value(ad_amount):
     return ad_amount*35

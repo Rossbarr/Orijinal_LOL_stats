@@ -6,22 +6,7 @@ Created on Tue Jan 14 11:15:55 2020
 """
 import numpy as np
 import matplotlib.pyplot as plt
-
-# Basic Stats Gold Value
-def AD_gold_value(ad_amount):
-    return ad_amount*35
-
-def AS_gold_value(as_amount):
-    return as_amount*25
-
-def crit_gold_value(crit_amount):
-    return crit_amount*32
-
-def move_speed_gold_value(ms):
-    return ms*12
-
-def mana_gold_value(mana):
-    return mana*1.4
+from modules.Stat_To_Gold_Converter import AD_gold_value, AS_gold_value, crit_gold_value, move_speed_gold_value, mana_gold_value
 
 #Gathering Storm
 def gathering_storm_AD(time):
