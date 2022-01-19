@@ -1,6 +1,10 @@
 # Orijinal_LOL_stats
 Random Statistics about League of Legends stemming from queries I had about the game.
 
+TO-DO: Organize files
+TO-DO: Create better documentation
+TO-DO: reduce reused code into one localized file
+
 This repository just showcases some of the code I created when I wondered about certain statistics. 
 
 For example, if you're familiar with League of Legends, it compares the gold value of using one rune page vs another (as best it can).
