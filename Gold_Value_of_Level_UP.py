@@ -24,22 +24,7 @@ champs = cg.champion_get('data/champion.json')
 level = np.arange(1,19,1)
 
 tags = []
-data = pd.DataFrame(data = [], 
-                    index = [], 
-                    columns = ['name',
-                               'tags',
-                               'hp',
-                               'mp',
-                               'ms',
-                               'armor',
-                               'mr',
-                               'attackrange',
-                               'hpregen',
-                               'mpregen',
-                               'crit',
-                               'ad',
-                               'attackspeed'])
-
+f
 for champ in champs:
     hp = cg.Stat_Growth(base = champ.stats['hp'],
                         growth = champ.stats['hpperlevel'],

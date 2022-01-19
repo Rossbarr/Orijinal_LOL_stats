@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 @author: Barrett
+
+SVM classifier that classifies champions as either 'Marksman' or not.
+
+TO-DO: update classifier to identify multiple classes, instead of just 2
 """
 
 import modules.Champion_Get as cg
@@ -12,16 +16,25 @@ from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import precision_recall_curve, accuracy_score
 
-data = cg.champion_get('data/champion.json')
+champs = cg.champion_get('data/champion.json')
 
+data = champs.reset_index().drop(columns = ['index', 'tags'])
+champ_tags = champs['tags'].reset_index().drop(columns = ['index'])
+tags = []
 
-# data_train, data_test, tags_train, tags_test = train_test_split(data, tags.values.ravel().astype((int)))
+for list_of_tags in champ_tags['tags']:
+  if 'Marksman' in list_of_tags:
+    tags.append(1)
+  else:
+    tags.append(0)
 
-# clf = svm.SVC()
-# clf.fit(data_train, tags_train)
+data_train, data_test, tags_train, tags_test = train_test_split(data, tags)
 
-# tags_pred = clf.predict(data_test)
+clf = svm.SVC()
+clf.fit(data_train, tags_train)
 
-# score = accuracy_score(tags_test, tags_pred)
+tags_pred = clf.predict(data_test)
 
-# print("Predicted champion's class (tank or marksman) with an accuracy of ", score)
+score = accuracy_score(tags_test, tags_pred)
+
+print("Predicted champion's class (tank or marksman) with an accuracy of ", score)
