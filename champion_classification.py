@@ -37,4 +37,4 @@ tags_pred = clf.predict(data_test)
 
 score = accuracy_score(tags_test, tags_pred)
 
-print("Predicted champion's class (tank or marksman) with an accuracy of ", score)
+print("Predicted champion's class (marksman or not) with an accuracy of ", score)
