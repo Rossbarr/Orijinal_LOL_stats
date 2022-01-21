@@ -7,7 +7,6 @@ TO-DO: Refactor to use modules.champion_get function
 """
 
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 from modules.Champion_Get import champion_get, Stat_Growth
 
@@ -34,7 +33,6 @@ plt.xlabel('Level')
 plt.ylabel('Attack Damage')
 plt.xlim(1,18)
 plt.ylim(0,150)
-# plt.figure(figsize = [10,8])
 plt.savefig('figures/stat_growth.png')
 plt.show()
 print("Saved file under figures/stat_growth.png")
