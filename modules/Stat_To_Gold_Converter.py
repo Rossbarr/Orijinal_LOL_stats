@@ -17,7 +17,19 @@ def armor_gold_value(armor):
     return armor*20
 
 def MR_gold_value(mr):
-    return mr*1
+    return mr*18
+
+def health_gold_value(health):
+    return health*2.67
+
+def mana_gold_value(mana):
+    return mana*1.4
+
+def health_regen_gold_value(hr):
+    return hr*3
+
+def mana_regen_gold_value(mr):
+    return mr*5
 
 def AS_gold_value(as_amount):
     return as_amount*25
@@ -28,5 +40,3 @@ def crit_gold_value(crit_amount):
 def move_speed_gold_value(ms):
     return ms*12
 
-def mana_gold_value(mana):
-    return mana*1.4
