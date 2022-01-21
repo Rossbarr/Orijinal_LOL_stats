@@ -9,20 +9,23 @@ TO-DO: Refactor to use modules.champion_get function
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from modules.Champion_Get import Stat_Growth
+from modules.Champion_Get import champion_get, Stat_Growth
 
-stats = pd.read_csv("data/Marksmen_Stats.csv")
+champs = champion_get('data/champion.json')
 
 level = np.arange(1,19,1)
 
-#champions = stats['Champion'] # Sees all champions (mostly useless, hard to read)
 champions = ['Xayah','Darius','Sett','Kalista','Aphelios'] #Enter champion names to see other champions
+# Showing all champions is impossible to read
+mask = True
+# set to false to show all champions
 
-for champion in champions:
-    AD = Stat_Growth(stats['Attack Damage'][stats['Champion'] == champion],
-                     stats['Attack Damage Growth'][stats['Champion'] == champion])
+for index, row in champs.iterrows():
+    if index in champions and mask:
+        stat = Stat_Growth(row['ad'],
+                        row['adperlevel'])
     
-    plt.plot(level,AD,label = champion)
+        plt.plot(level, stat, label = index)
     
 plt.legend()
 plt.grid()
@@ -32,5 +35,6 @@ plt.ylabel('Attack Damage')
 plt.xlim(1,18)
 plt.ylim(0,150)
 # plt.figure(figsize = [10,8])
-plt.savefig('figures/ADC_stat_growth.png')
-print("Saved file 'ADC_stat_growth.png' under figures/ADC_stat_growth.png")
+plt.savefig('figures/stat_growth.png')
+plt.show()
+print("Saved file under figures/stat_growth.png")
