@@ -2,8 +2,6 @@
 """
 This file originally dealt with the question of:
 "How do champion's stats grow compared to one another? Who scales better than others?"
-
-TO-DO: Refactor to use modules.champion_get function
 """
 
 import numpy as np
