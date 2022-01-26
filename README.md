@@ -2,7 +2,6 @@
 Random Statistics about League of Legends stemming from queries I had about the game.
 
 TO-DO: Create better documentation
-TO-DO: reduce reused code into one localized file
 
 This repository just showcases some of the code I created when I wondered about certain statistics. 
 
