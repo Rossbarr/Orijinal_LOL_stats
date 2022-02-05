@@ -51,21 +51,40 @@ def biscuit_delivery_gold_value(time):
             
     return x
 
-time = np.arange(0.0,41.0,0.1)
+def area(x, dt):
+    a = np.zeros_like(x)
+    for i in range(len(x)):
+        if i == 0:
+            pass
+        else:
+            a[i] = (x[i]*dt + a[i-1])
+
+    return a
+
+deltatime = 0.01
+time = np.arange(0.0,50,deltatime)
 
 gold_value_of_GS = AD_gold_value(gathering_storm_AD(time))
 gold_value_of_BD = biscuit_delivery_gold_value(time)
 gold_value_of_MF = magical_footwear_gold_value(time)
+difference = gold_value_of_MF + gold_value_of_BD - gold_value_of_GS
+difference_area = area(difference, deltatime)/time
 
-plt.plot(time, gold_value_of_GS,
-         color = "blue",
-         label = "Gathering Storm")
-plt.plot(time, gold_value_of_BD + gold_value_of_MF,
-         color = "Green",
-         label = "Biscuit Delivery + Magical Footwear")
+# plt.plot(time, gold_value_of_GS,
+#          color = "blue",
+#          label = "Gathering Storm")
+# plt.plot(time, gold_value_of_BD + gold_value_of_MF,
+#          color = "Green",
+#          label = "Biscuit Delivery + Magical Footwear")
+plt.plot(time, difference,
+         color = "Red",
+         label = "Difference")
+# plt.plot(time, difference_area,
+#          color = "Red",
+#          label = "Difference Area")
 plt.xlabel("Time")
-plt.ylabel("Gold Value")
+plt.ylabel("(Gold * Time)")
 plt.grid()
 plt.legend()
-plt.savefig('figures/gathering_storm_vs_biscuits_and_magical_boots')
+# plt.savefig('figures/gathering_storm_vs_biscuits_and_magical_boots')
 plt.show()
